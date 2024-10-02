@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger("user_id");
+            $table->unsignedInteger("category_id");
             $table->string("title")->nullable();
             $table->text("description")->nullable();
-            $table->unsignedInteger("category_id");
             $table->timestamps();
         });
     }

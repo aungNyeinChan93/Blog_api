@@ -61,7 +61,9 @@ class AuthController extends Controller
 
     // logout
     public function logout(Request $request){
+
         $request->user()->tokens()->delete();
-        return ResponseHelper::success([],"successfully logout");
+        Auth::logout();
+        return ResponseHelper::success([],"success logout");
     }
 }

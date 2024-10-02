@@ -1,4 +1,4 @@
-<?php
+php ar<?php
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
@@ -20,10 +20,14 @@ Route::group(["middleware"=>"auth:sanctum"],function(){
 
     // profile
     Route::get("profile",[UserProfileController::class,"profile"]);
+    Route::get("profile/posts",[UserProfileController::class,"profilePosts"]);
 
     // categories
     Route::get("categories",[CategoryController::class,"list"]);
 
     // Posts
     Route::post("posts",[PostController::class,"create"]);
+    Route::get("posts",[PostController::class, "lists"]);
+    Route::get("posts/{post}",[PostController::class, "detail"]);
+
 });
